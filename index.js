@@ -6,22 +6,13 @@ export class PriorityQueue {
 
     push(item) {
         this.data.push(item);
-        this.fizzle(this.data.indexOf(item));
-    }
-
-    fizzle(index) {
-        if (index > 0) {
-            while (this.priorityFunc(this.data[index], this.data[index - 1])) {
-                let item = this.data[index]
-                this.data.splice(index, 1);
-                this.data.splice(index - 1, 0, item)
-
-                index -= 1;
-                
-                if (index <= 0)
-                    break;
-            }
+        let index = this.data.length - 1;
+        console.log(index > 0)
+        while (index > 0 && this.priorityFunc(this.data[index], this.data[index - 1])) {
+            [this.data[index], this.data[index - 1]] = [this.data[index - 1], this.data[index]];
+            index -= 1;
         }
+        
     }
     
     pop() {
@@ -37,7 +28,7 @@ export class PriorityQueue {
     }
 
     setHeapFunc(func) {
-        this.priorityFunc = func
+        this.priorityFunc = func;
     }
 
     minHeap(a, b) {

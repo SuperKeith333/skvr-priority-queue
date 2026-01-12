@@ -1,6 +1,6 @@
 {
   "name": "skvr-priority-queue",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Adds a priority queue",
   "main": "index.js",
   "scripts": {
