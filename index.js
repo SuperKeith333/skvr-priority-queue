@@ -7,7 +7,6 @@ export class PriorityQueue {
     push(item) {
         this.data.push(item);
         let index = this.data.length - 1;
-        console.log(index > 0)
         while (index > 0 && this.priorityFunc(this.data[index], this.data[index - 1])) {
             [this.data[index], this.data[index - 1]] = [this.data[index - 1], this.data[index]];
             index -= 1;
